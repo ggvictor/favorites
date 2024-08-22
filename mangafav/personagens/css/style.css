@@ -11,7 +11,7 @@ body{
     height: 100vh;
     background-color: #444;
 }
-header{
+header div{
     background-color: #333;
     display: flex;
     justify-content: space-around;
@@ -89,4 +89,167 @@ div#autor p {
 div.body{
     margin-top: 30px;
     padding-bottom: 10px;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'kalam';
+    height: 8vh;
+}
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+.nav-list a {
+    font-size: 18px;
+    font-weight: bold;
+    padding-block: 16px;
+}
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+div button.hamburguer{
+    margin-bottom: 100px;
+    border: none;
+    display: none;
+    background: none;
+    border-top: 3px solid white;
+    cursor: pointer;
+}
+div button.hamburguer::before,
+div button.hamburguer::after{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+}
+@media (max-width:700px) {
+    div .logo{
+        height:50px;
+        padding-block: 10px;
+
+    }
+    div button.hamburguer{
+        position: fixed;
+        display: block;
+        z-index: 1;
+        top: 26px;
+        right: 16px;
+    }
+    .nav-list{
+        position: fixed;
+        top:0%;
+        left: 50%;
+        width: 50vw;
+        height: 100vh;
+        background: #333;
+        clip-path: circle(100px at 110px -25%);
+        transition: 1s ease-out;
+
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        margin: 0 auto;
+        pointer-events: none;
+    }
+    .nav-list a{
+        font-size: 24px;
+        opacity: 0;
+    }
+    .nav-list li:nth-child(1) a {
+        transition: 0.5s 0.2s;
+    }
+    .nav-list li:nth-child(2) a {
+        transition: 0.5s 0.4s;
+    }
+    .nav-list li:nth-child(3) a {
+        transition: 0.5s 0.6s;
+    }
+    /* estilos ativos */
+    .nav.active .nav-list{
+        clip-path: circle(1500px at 110px -25%);
+        pointer-events: all;
+    }
+    .nav.active .nav-list a{
+        opacity: 1;
+    }
+    .nav.active .hamburguer{
+        position: fixed;
+        top: 26px;
+        right: 16px;
+        border-top-color: transparent;
+    }
+    .nav.active .hamburguer::before{
+        transform: rotate(135deg);
+    }
+    .nav.active .hamburguer::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+    div.top , div.bottom {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    div.autor-div{
+        display: flex;
+        flex-direction: column;
+    }
+    div#autor > p {
+        font-size: 1rem;
+        width: 300px;
+    }
+    div.slider{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    div.mySlides {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    div.mySlides img{
+        height: 200px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    div.slider a{
+        
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        background-color: rgba(255, 255, 255, 0.5); /* Se quiser um fundo visível */
+    }
+    
+    .prev {
+        left: 0; /* Posiciona no canto esquerdo */
+        border-radius: 0 3px 3px 0;
+    }
+    
+    .next {
+        right: 0; /* Posiciona no canto direito */
+        border-radius: 3px 0 0 3px;
+    }
+    
+    .prev:hover, .next:hover {
+        background-color: rgba(255, 0, 0, 0.8);
+    }
 }
