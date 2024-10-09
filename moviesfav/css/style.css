@@ -75,7 +75,7 @@ div.body{
     margin-top: 30px;
     padding-bottom: 10px;
 }
-div.body p{
+div.body p, .p{
     padding-top: 5px;
     max-width: 600px;
     color: white;
